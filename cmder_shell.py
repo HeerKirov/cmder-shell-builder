@@ -2,9 +2,7 @@ from json.decoder import JSONDecodeError
 import json
 
 CONFIG = 'config.json'
-DEFAULT_COMMON = {
-    "compile": ["bat"]
-}
+DEFAULT_COMMON = {"compile": ["bat"]}
 DEFAULT_LINE_HEAD = '[SELECT $+title]'
 DEFAULT_LINE_ITEM = ' $index $title'
 DEFAULT_LINE_SELECT = 'SELECT:'

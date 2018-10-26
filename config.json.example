@@ -1,0 +1,56 @@
+{
+    "configs": [
+        {
+            "filename": "C:\\Application\\Cmder\\terminal",
+            "title": "Local Terminal",
+            "choices": [
+                {
+                    "toggle": ["cmder", "c"],
+                    "terminal_title": "Cmder",
+                    "command": "cmd /k \"\"C:\\Application\\Cmder\\vendor\\init.bat\"\""
+                },
+                {
+                    "toggle": ["cmd"],
+                    "terminal_title": "Cmd",
+                    "command": "cmd"
+                },
+                {
+                    "toggle": ["powershell", "ps"],
+                    "terminal_title": "PowerShell",
+                    "command": "powershell"
+                },
+                {
+                    "toggle": ["python", "py"],
+                    "terminal_title": "Python3.6",
+                    "command": "python"
+                }
+            ]
+        },
+        {
+            "filename": "C:\\Application\\Cmder\\ssh",
+            "title": "SSH Terminal",
+            "lines": {
+                "item": " $index $title[$ip]"
+            },
+            "choices": [
+                {
+                    "user": "heer", "ip": "worker",
+                    "toggle": ["worker"],
+                    "terminal_title": "[SSH]worker",
+                    "command": "ssh $user@$ip"
+                },
+                {
+                    "user": "heer", "ip": "myserver",
+                    "toggle": ["myserver", "my", "heerkirov"],
+                    "title": "myserver/heerkirov",
+                    "terminal_title": "[SSH]myserver",
+                    "command": "ssh $user@$ip"
+                }
+            ],
+            "else_choice": {
+                "terminal_title": "[SSH]Terminal",
+                "command": "ssh %%arg%%"
+            }
+        }
+    ]
+}
