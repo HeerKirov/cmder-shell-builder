@@ -5,7 +5,7 @@ CONFIG = 'config.json'
 DEFAULT_COMMON = {"compile": ["bat"]}
 DEFAULT_LINE_HEAD = '[SELECT $+title]'
 DEFAULT_LINE_ITEM = ' $index $title'
-DEFAULT_LINE_SELECT = 'SELECT:'
+DEFAULT_LINE_SELECT = 'SELECT: '
 
 
 class OutputError(Exception):
@@ -186,10 +186,7 @@ class CmderShell(object):
 
     @staticmethod
     def __write_file(filename, compile_goal, content):
-        extension = {
-            'bat': 'bat'
-        }[compile_goal]
-        with open('%s.%s' % (filename, extension), 'w') as f:
+        with open('%s.%s' % (filename, compile_goal), 'w') as f:
             for line in content:
                 f.write(line + '\n')
 
@@ -198,7 +195,7 @@ class CmderShell(object):
             for file in self.__file_configs:
                 for compile_goal in self.__compile_goal:
                     CmderShell.__write_file(file.filename, compile_goal, CmderShell.__analyse_file(file, compile_goal))
-                    print('CmderShell: %s处理完毕。' % (file.filename,))
+                    print('CmderShell: %s.%s处理完毕。' % (file.filename, compile_goal))
         else:
             print('CmderShell: 没有发现编译目标。因此执行被跳过。')
 
